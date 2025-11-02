@@ -1,31 +1,245 @@
 <!DOCTYPE html>
 <html>
-
+<html lang="en"></html>
 <head>
   <meta charset="utf-8" />
   <title>Lab 02 | Stock Portfolio Dashboard</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAB 02 Stock Portfolio Dashboard</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,400i,700" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
-
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
   <script src="/data/users.js"></script>
   <script src="/data/stocks-complete.js"></script>
   <script src="/app.js"></script>
 </head>
-
+  <style>
+    /* === GLOBAL === */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 <body>
+    body {
+      font-family: "Nunito Sans", sans-serif;
+      background: linear-gradient(135deg, #e0f2fe, #f0f9ff, #a5f3fc);
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
 
+    header {
+      text-align: center;
+      background: linear-gradient(90deg, #0284c7, #3b82f6);
+      color: white;
+      padding: 15px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* === SIDEBAR === */
+    .sidebar {
+      width: 25%;
+      background: linear-gradient(180deg, #e0f2fe, #bae6fd);
+      padding: 20px;
+      border-right: 3px solid #7dd3fc;
+      box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+
+    .sidebar h3 {
+      text-align: center;
+      color: #0369a1;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .user-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .user-item {
+      background: #f8fafc;
+      padding: 10px;
+      margin: 6px 0;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      color: #1e3a8a;
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .user-item:hover {
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* === CONTENT === */
+    .content {
+      width: 75%;
+      background: linear-gradient(120deg, #f8fafc, #f1f5f9);
+      padding: 25px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card h3 {
+      color: #0c4a6e;
+      border-bottom: 2px solid #7dd3fc;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 10px;
+      color: #0f172a;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      margin-top: 5px;
+      font-family: "Nunito Sans", sans-serif;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      color: white;
+      font-family: "Poppins", sans-serif;
+    }
   <header>
     <h1>Lab 02 | Stock Portfolio Dashboard</h1>
   </header>
   <main class="grid-container">
-
+    #saveUser {
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+    }
     <section class="user-list-container">
       <h2>Users</h2>
+          #saveUser:hover {
+      background: linear-gradient(90deg, #16a34a, #15803d);
+      transform: scale(1.05);
+    }
+
+    #deleteUser {
+      background: linear-gradient(90deg, #ef4444, #b91c1c);
+    }
+
+    #deleteUser:hover {
+      background: linear-gradient(90deg, #dc2626, #991b1b);
+      transform: scale(1.05);
+    }
+
+    .portfolio-list div {
+      background: linear-gradient(90deg, #fef3c7, #fde68a);
+      padding: 10px;
+      margin: 6px 0;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.25s;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .portfolio-list div:hover {
+      background: linear-gradient(90deg, #fbbf24, #f59e0b);
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .portfolio-list button {
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.25s;
+    }
+
+    .portfolio-list button:hover {
+      background: linear-gradient(90deg, #2563eb, #1d4ed8);
+    }
+
+    .stock-form img {
+      width: 100px;
+      margin-top: 10px;
+      border-radius: 6px;
+      background: white;
+      padding: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>📊 Stock Portfolio Dashboard</header>
+
+  <main>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>👥 Users</h3>
       <ul class="user-list"></ul>
     </section>
-
+    </aside>
     <section class="Details">
       <div class="UserForm">
         <h2>User Form</h2>
@@ -41,6 +255,26 @@
           <input type=email id="email" class="both" />
           <button class="one" id="btnSave">Save</button>
           <button class="two" id="btnDelete">Delete</button>
+              <!-- Main Content -->
+    <section class="content">
+      <div class="card user-form">
+        <h3>🧾 User Information</h3>
+        <form id="userForm">
+          <input type="hidden" id="userID" />
+          <label>First Name</label>
+          <input type="text" id="firstname" />
+          <label>Last Name</label>
+          <input type="text" id="lastname" />
+          <label>Address</label>
+          <input type="text" id="address" />
+          <label>City</label>
+          <input type="text" id="city" />
+          <label>Email</label>
+          <input type="text" id="email" />
+          <div class="btn-group">
+            <button id="saveUser">💾 Save</button>
+            <button id="deleteUser">🗑 Delete</button>
+          </div>
         </form>
       </div>
       <div class="Portfolio">
@@ -69,13 +303,29 @@
           </div>
 
         </div>
+              <div class="card portfolio-form">
+        <h3>💼 Portfolio Holdings</h3>
+        <div class="portfolio-list"></div>
       </div>
-
+      <div class="card stock-form">
+        <h3>🏢 Stock Information</h3>
+        <p><strong>Name:</strong> <span id="stockName"></span></p>
+        <p><strong>Sector:</strong> <span id="stockSector"></span></p>
+        <p><strong>Industry:</strong> <span id="stockIndustry"></span></p>
+        <p><strong>Address:</strong> <span id="stockAddress"></span></p>
+        <img id="logo" src="" alt="Stock Logo" />
+      </div>
     </section>
 
 
   </main>
 
 </body>
-
+  <!-- Load Data Files -->
+  <script src="data/users.js"></script>
+  <script src="data/stocks-complete.js"></script>
+</html>
+  <!-- Main JS -->
+  <script src="app.js"></script>
+</body>
 </html>
